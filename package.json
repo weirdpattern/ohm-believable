@@ -2,7 +2,7 @@
   "license": "MIT",
   "version": "0.0.1",
   "name": "ohm-value-calculator",
-  "description": "A friendly ohm calculator for resistors",
+  "description": "An electronic color code simulator that calculates the ratings of electronic components",
   "author": {
     "name": "Patricio Trevino",
     "email": "patricio.trevino@gmail.com"

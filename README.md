@@ -1,2 +1,2 @@
 # Ohm value calculator
-A friendly ohm calculator for resistors
+An electronic color code simulator that calculates the ratings of electronic components
