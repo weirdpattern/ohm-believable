@@ -1,0 +1,7 @@
+npm
+dist
+build
+lib-cov
+typings
+coverage
+node_modules
