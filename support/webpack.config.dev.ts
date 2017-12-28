@@ -1,20 +1,28 @@
+import { devServer } from "../package.json";
+
+import config, {
+  createEntry,
+  createRules,
+  resource
+} from "./webpack.config.base";
+
+import {
+  Configuration,
+  DefinePlugin,
+  HotModuleReplacementPlugin,
+  NamedModulesPlugin,
+  NoEmitOnErrorsPlugin
+} from "webpack";
+
 import * as HtmlWebpackPlugin from "html-webpack-plugin";
 import * as CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 
-import { devServer } from "../package.json";
-import config, { createEntry, resource } from "./webpack.config.base";
-
-import {
-  DefinePlugin,
-  HotModuleReplacementPlugin,
-  NamedModulesPlugin
-} from "webpack";
-
 export default {
   ...config,
+  devtool: "cheap-module-source-map",
   entry: createEntry(
     "react-hot-loader/patch",
-    `webpack-dev-server/client?${devServer.host}:${devServer.port}`,
+    `webpack-dev-server/client?http://${devServer.host}:${devServer.port}`,
     "webpack/hot/only-dev-server"
   ),
   output: {
@@ -24,7 +32,22 @@ export default {
     filename: "static/js/bundle.js",
     chunkFilename: "static/js/[name].chunk.js"
   },
+  devServer: {
+    ...devServer,
+    publicPath: "/",
+    hot: true
+  },
+  module: {
+    ...config.module,
+    rules: createRules({
+      test: /\.tsx?$/,
+      include: resource("src"),
+      loaders: ["react-hot-loader/webpack", "ts-loader"]
+    })
+  },
   plugins: [
+    new HotModuleReplacementPlugin(),
+    new NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       publicUrl: "",
@@ -34,7 +57,6 @@ export default {
     new DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("development")
     }),
-    new HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin()
   ]
-};
+} as Configuration;

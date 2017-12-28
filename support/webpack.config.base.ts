@@ -1,5 +1,8 @@
 import { join, relative } from "path";
-import { optimize, Configuration } from "webpack";
+import { optimize, Configuration, Rule } from "webpack";
+
+import * as autoprefixer from "autoprefixer";
+import * as flexbugs from "postcss-flexbugs-fixes";
 
 /**
  * Gets the path to a resource based off of the root of the repository.
@@ -28,27 +31,92 @@ export function createEntry(...extras: string[]): string[] {
   ];
 }
 
+const src: string = resource("src");
+
+/**
+ * Creates the rule section of the webpack configuration.
+ * @param {Rule} typescriptRule the customized typescript rule.
+ * @returns {Rule[]} a set of rules.
+ */
+export function createRules(typescriptRule: Rule): Rule[] {
+  return [
+    {
+      test: /\.tsx?$/,
+      loader: "eslint-loader",
+      enforce: "pre",
+      include: src
+    },
+    {
+      test: /\.js$/,
+      loader: "source-map-loader",
+      enforce: "pre",
+      include: src
+    },
+    {
+      oneOf: [
+        typescriptRule,
+        {
+          test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+          loader: "url-loader",
+          options: {
+            limit: 10000,
+            name: "static/media/[name].[hash:8].[ext]"
+          }
+        },
+        {
+          test: /\.css$/,
+          use: [
+            "style-loader",
+            {
+              loader: "css-loader",
+              options: {
+                importLoaders: 1
+              }
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                ident: "postcss",
+                plugins: () => [
+                  flexbugs,
+                  autoprefixer({
+                    browsers: [
+                      ">1%",
+                      "last 4 versions",
+                      "Firefox ESR",
+                      "not ie < 9"
+                    ],
+                    flexbox: "no-2009"
+                  })
+                ]
+              }
+            }
+          ]
+        },
+        {
+          test: /\.\w+$/,
+          exclude: /\.(js|html|json)$/,
+          loader: "file-loader",
+          options: {
+            name: "static/media/[name].[hash:8].[ext]"
+          }
+        }
+      ]
+    }
+  ];
+}
+
 export default {
   output: {
     path: resource("build"),
     devtoolModuleFilenameTemplate: info =>
-      relative(resource("src"), info.absoluteResourcePath).replace(/\\/g, "/")
+      relative(__dirname, info.absoluteResourcePath).replace(/\\/g, "/")
   },
   module: {
-    strictExportPresence: true,
-    rules: [
-      {
-        test: /\.html?$/,
-        loader: "file-loader"
-      },
-      {
-        test: /\.json$/,
-        loader: "json-loader"
-      }
-    ]
+    strictExportPresence: true
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".json"],
-    modules: ["node_modules", resource("src")]
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+    modules: ["node_modules", src]
   }
 } as Configuration;

@@ -20,7 +20,7 @@ declare module '*/package.json' {
   export const man: string | Array<string>;
   export const devServer: {
     host: string,
-    port: string
+    port: number
   };
   export const channels: {
     win32: string,

@@ -1,22 +1,36 @@
+import { homepage } from "../package.json";
+import { Configuration, DefinePlugin, optimize } from "webpack";
+
+import config, {
+  createEntry,
+  createRules,
+  resource
+} from "./webpack.config.base";
+
 import * as HtmlWebpackPlugin from "html-webpack-plugin";
 import * as ManifestPlugin from "webpack-manifest-plugin";
 import * as ExtractTextPlugin from "extract-text-webpack-plugin";
-
-import { homepage } from "../package.json";
-import { DefinePlugin, optimize } from "webpack";
-import config, { createEntry, resource } from "./webpack.config.base";
 
 const publicPath: string = homepage || process.env.PUBLIC_PATH;
 
 export default {
   ...config,
   bail: true,
+  devtool: "source-map",
   entry: createEntry(),
   output: {
     ...config.output,
     publicPath,
     filename: "static/js/[name].[chunkhash:8].js",
     chunkFilename: "static/js/[name].[chunkhash:8].chunk.js"
+  },
+  module: {
+    ...config.module,
+    rules: createRules({
+      test: /\.tsx?$/,
+      include: resource("src"),
+      loader: "ts-loader"
+    })
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -54,4 +68,4 @@ export default {
       fileName: "asset-manifest.json"
     })
   ]
-};
+} as Configuration;
