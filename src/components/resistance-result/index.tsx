@@ -1,12 +1,13 @@
 import * as React from "react";
 
-import { Resistance, ResistanceProps } from "../../misc/interfaces";
+import Resistance from "../../misc/Resistance";
+import { ResistanceProps } from "../../misc/interfaces";
 import {
   OhmValueCalculator,
   OhmValueCalculatorService
 } from "../../misc/OhmValueCalculator";
 
-import "./ResistanceResults.scss";
+import "./styles.scss";
 
 // the calculator service
 const service: OhmValueCalculator = new OhmValueCalculatorService();
@@ -26,18 +27,9 @@ export default function ResistanceResult(
     props.tolerance
   );
 
-  let formatted: string;
-  if (result.value / 1000000 > 1) {
-    formatted = `${(result.value / 1000000).toString()}M`;
-  } else if (result.value / 1000 > 1) {
-    formatted = `${(result.value / 1000).toString()}K`;
-  } else {
-    formatted = `${result.value}`;
-  }
-
   return (
     <div className="results">
-      <h2>{`${formatted}Ω ±${result.tolerance}%`}</h2>
+      <h2>{result.toResistance(true)}</h2>
     </div>
   );
 }

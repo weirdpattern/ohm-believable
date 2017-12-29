@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import descriptors from "../../misc/descriptors";
-import ColorPicker from "../color-picker/Component";
+import ColorPicker from "../color-picker";
 import {
   AllColors,
   BandsProps,
@@ -9,7 +9,7 @@ import {
   ResistorBands
 } from "../../misc/interfaces";
 
-import "./Bands.scss";
+import "./styles.scss";
 
 /**
  * Filters ColorDescriptor objects based on the band values.

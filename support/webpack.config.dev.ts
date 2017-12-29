@@ -15,6 +15,7 @@ import {
 } from "webpack";
 
 import * as HtmlWebpackPlugin from "html-webpack-plugin";
+import * as ExtractTextPlugin from "extract-text-webpack-plugin";
 import * as CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 
 export default {
@@ -56,6 +57,9 @@ export default {
     new NamedModulesPlugin(),
     new DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("development")
+    }),
+    new ExtractTextPlugin({
+      filename: "static/css/[name].[contenthash:8].css"
     }),
     new CaseSensitivePathsPlugin()
   ]

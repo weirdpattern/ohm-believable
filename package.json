@@ -124,7 +124,8 @@
         }
       ],
       "no-console": "error",
-      "filenames/no-index": "error",
+      "filenames/no-index": "off",
+      "filenames/match-exported": ["error", [null, "kebab", "camel"]],
       "jest/no-disabled-tests": "error",
       "jest/no-focused-tests": "error",
       "jest/no-identical-title": "error",

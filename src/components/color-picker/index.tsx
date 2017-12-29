@@ -3,7 +3,7 @@ import * as React from "react";
 import { GithubPicker, ColorResult } from "react-color";
 import { ColorPickerProps } from "../../misc/interfaces";
 
-import "./ColorPicker.scss";
+import "./styles.scss";
 
 /**
  * Defines a color picker.

@@ -28,18 +28,19 @@ $colors: (
     stroke-linecap: butt;
     stroke-linejoin: miter;
     stroke-opacity: 1;
+  }
 
-    .clickable {
-      opacity: 1;
-      fill-opacity: 1;
-      stroke: none;
-      stroke-width: 0.94488192;
-      stroke-opacity: 1;
-    }
+  .clickable {
+    opacity: 1;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 0.94488192;
+    stroke-opacity: 1;
+    cursor: pointer;
+  }
 
-    .line {
-      color: map-get($colors, black);
-    }
+  .line {
+    color: map-get($colors, black);
   }
 }
 
@@ -47,7 +48,7 @@ $colors: (
   .#{$color} {
     @if $color == transparent {
       fill: $color-background;
-      stroke: #000000;
+      stroke: #000000 !important;
       stroke-dasharray: 5, 5;
     } @else {
       fill: $value;

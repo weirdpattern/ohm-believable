@@ -1,10 +1,10 @@
 import * as React from "react";
 
-import Bands from "../components/bands/Component";
-import ResistanceResult from "../components/resistance-results/Component";
+import Bands from "../components/bands";
+import ResistanceResult from "../components/resistance-result";
 import { AllColors, ApplicationState, ResistorBands } from "../misc/interfaces";
 
-import "./Application.scss";
+import "./styles.scss";
 
 /**
  * Main container of the application.

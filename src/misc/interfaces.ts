@@ -140,14 +140,14 @@ export interface ResistanceProps extends ResistorBands {}
  * @property {string} hex the hexadecimal color representation.
  * @property {number} [value] the significant value of the color.
  * @property {number} [multiplier] the multiplier of the color.
- * @property {number} [tolerance] the tolerance of the color.
+ * @property {string} [tolerance] the tolerance of the color.
  */
 export interface ColorDescriptor {
   color: string;
   hex: string;
   value: Maybe<number>;
   multiplier: Maybe<number>;
-  tolerance: Maybe<number>;
+  tolerance: Maybe<string>;
 }
 
 /**
@@ -161,16 +161,6 @@ export interface OptionDescriptor {
   text: string;
   value: number;
   cssClass: string;
-}
-
-/**
- * Resistance information.
- * @property {number} value the value of the resistance in ohms.
- * @property {number} tolerance the tolerance of the resistor.
- */
-export interface Resistance {
-  value: number;
-  tolerance: number;
 }
 
 /**
