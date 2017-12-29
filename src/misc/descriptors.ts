@@ -43,5 +43,5 @@ export default {
   gold: descriptor("gold", "#CFB53B", null, -1, 5),
   silver: descriptor("silver", "#C0C0C0", null, -2, 10),
   pink: descriptor("pink", "#FF69B4", null, -3, null),
-  transparent: descriptor("transparent", "", null, null, 20)
+  transparent: descriptor("transparent", "#E9DDAF", null, null, 20)
 };

@@ -1,7 +1,8 @@
 import * as React from "react";
 
-import { AllColors, ApplicationState, ResistorBands } from "../misc/interfaces";
 import Bands from "../components/bands/Component";
+import ResistanceResult from "../components/resistance-results/Component";
+import { AllColors, ApplicationState, ResistorBands } from "../misc/interfaces";
 
 import "./Application.scss";
 
@@ -42,7 +43,8 @@ export default class Application extends React.PureComponent<
     return (
       <div className="resistor">
         <h1>Ω-believable</h1>
-        <small>(ohm)-believable</small>
+        <small>Select a color for each one of the bands</small>
+        <ResistanceResult {...this.state.bands} />
         <Bands
           {...this.state}
           onEditBand={this.onEditBand}
@@ -68,8 +70,6 @@ export default class Application extends React.PureComponent<
    * @returns {void}
    */
   private onColorChange(band: keyof ResistorBands, color: AllColors): void {
-    console.log(`band is ${band}`);
-    console.log(`color is ${color}`);
     this.setState((state: ApplicationState) => {
       return {
         ...state,

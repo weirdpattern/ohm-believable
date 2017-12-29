@@ -1,4 +1,4 @@
-$color-background: #e9ddaf;
+$color-background: #E9DDAF;
 
 $colors: (
   black: #000000,
@@ -14,7 +14,7 @@ $colors: (
   gold: #CFB53B,
   silver: #C0C0C0,
   pink: #FF69B4,
-  transparent: "transparent"
+  transparent: $color-background
 );
 
 .resistor-svg {
@@ -45,9 +45,12 @@ $colors: (
 
 @each $color, $value in $colors {
   .#{$color} {
-    fill: $value;
     @if $color == transparent {
-      border: 1px dotted map-get($colors, black)
+      fill: $color-background;
+      stroke: #000000;
+      stroke-dasharray: 5, 5;
+    } @else {
+      fill: $value;
     }
   }
 }

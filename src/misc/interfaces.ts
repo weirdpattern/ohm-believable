@@ -124,6 +124,16 @@ export interface ColorPickerProps {
 }
 
 /**
+ * Describes the resistance properties.
+ * @typedef {ResistorBands} ResistanceProps
+ * @property {number} a the a band.
+ * @property {number} b the b band.
+ * @property {number} multiplier the resistor multipler.
+ * @property {number} tolerance the tolerance of the resistor.
+ */
+export interface ResistanceProps extends ResistorBands {}
+
+/**
  * Describes a color descriptor.
  * @typedef {Interface} ColorDescriptor
  * @property {string} color the name of the color.
@@ -151,6 +161,16 @@ export interface OptionDescriptor {
   text: string;
   value: number;
   cssClass: string;
+}
+
+/**
+ * Resistance information.
+ * @property {number} value the value of the resistance in ohms.
+ * @property {number} tolerance the tolerance of the resistor.
+ */
+export interface Resistance {
+  value: number;
+  tolerance: number;
 }
 
 /**

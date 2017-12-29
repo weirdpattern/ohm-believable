@@ -3,6 +3,8 @@ import * as React from "react";
 import { GithubPicker, ColorResult } from "react-color";
 import { ColorPickerProps } from "../../misc/interfaces";
 
+import "./ColorPicker.scss";
+
 /**
  * Defines a color picker.
  * @class
@@ -40,13 +42,7 @@ export default class ColorPicker extends React.PureComponent<
   public render(): React.ReactNode {
     const { colors } = this.props;
     return (
-      <div
-        style={{
-          position: "absolute",
-          left: "50%",
-          margin: "0 0 0 -100px"
-        }}
-      >
+      <div className="color-picker">
         <GithubPicker
           colors={colors}
           triangle="hide"

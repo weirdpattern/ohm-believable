@@ -4,18 +4,9 @@ import {
   Maybe,
   BandColors,
   MultiplierColors,
+  Resistance,
   ToleranceColors
 } from "./interfaces";
-
-/**
- * Resistance information.
- * @property {number} value the value of the resistance in ohms.
- * @property {number} tolerance the tolerance of the resistor.
- */
-export interface Resistance {
-  value: number;
-  tolerance: number;
-}
 
 /**
  * Performs Ohm calculations based on the color of the bands.
@@ -61,11 +52,14 @@ export class OhmValueCalculatorService implements OhmValueCalculator {
       descriptors[multiplierColor].multiplier,
       descriptors[toleranceColor].tolerance
     ].map((value: Maybe<number>, index: number) => {
-      const resolved: number = !isMaybe(value)
-        ? 0
-        : parseInt(String(value), 10);
+      const resolved: number = isMaybe(value) ? 0 : parseInt(String(value), 10);
       return index === 0 ? resolved * 10 : resolved;
     });
+
+    console.log(`a: ${a}`);
+    console.log(`b: ${b}`);
+    console.log(`multiplier: ${multiplier}`);
+    console.log(`tolerance: ${tolerance}`);
 
     return {
       value: (a + b) * 10 ** multiplier,
