@@ -38,6 +38,6 @@
       "dom"
     ]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "support/**/*"],
   "exclude": ["node_modules"]
 }

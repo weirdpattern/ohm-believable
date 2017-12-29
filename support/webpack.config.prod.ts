@@ -11,7 +11,7 @@ import * as HtmlWebpackPlugin from "html-webpack-plugin";
 import * as ManifestPlugin from "webpack-manifest-plugin";
 import * as ExtractTextPlugin from "extract-text-webpack-plugin";
 
-const publicPath: string = homepage || process.env.PUBLIC_PATH;
+const publicPath: string = homepage || process.env.PUBLIC_PATH || "";
 
 export default {
   ...config,

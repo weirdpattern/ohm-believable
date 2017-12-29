@@ -1,8 +1,9 @@
 import { join, relative } from "path";
-import { optimize, Configuration, Rule } from "webpack";
+import { Configuration, Rule } from "webpack";
 
 import * as autoprefixer from "autoprefixer";
 import * as flexbugs from "postcss-flexbugs-fixes";
+import * as ExtractTextPlugin from "extract-text-webpack-plugin";
 
 /**
  * Gets the path to a resource based off of the root of the repository.
@@ -25,7 +26,7 @@ export function resource(...sections: string[]): string {
  */
 export function createEntry(...extras: string[]): string[] {
   return [
-    resource("support", "polyfills"),
+    resource("src", "polyfills.ts"),
     ...extras,
     resource("src", "app.tsx")
   ];
@@ -65,35 +66,37 @@ export function createRules(typescriptRule: Rule): Rule[] {
         },
         {
           test: /\.scss$/,
-          use: [
-            "style-loader",
-            {
-              loader: "css-loader",
-              options: {
-                sourceMap: true,
-                minimize: true
-              }
-            },
-            {
-              loader: "postcss-loader",
-              options: {
-                ident: "postcss",
-                plugins: () => [
-                  flexbugs,
-                  autoprefixer({
-                    browsers: [
-                      ">1%",
-                      "last 4 versions",
-                      "Firefox ESR",
-                      "not ie < 9"
-                    ],
-                    flexbox: "no-2009"
-                  })
-                ]
-              }
-            },
-            "sass-loader"
-          ]
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: [
+              {
+                loader: "css-loader",
+                options: {
+                  sourceMap: true,
+                  minimize: true
+                }
+              },
+              {
+                loader: "postcss-loader",
+                options: {
+                  ident: "postcss",
+                  plugins: () => [
+                    flexbugs,
+                    autoprefixer({
+                      browsers: [
+                        ">1%",
+                        "last 4 versions",
+                        "Firefox ESR",
+                        "not ie < 9"
+                      ],
+                      flexbox: "no-2009"
+                    })
+                  ]
+                }
+              },
+              "sass-loader"
+            ]
+          })
         },
         {
           test: /\.\w+$/,

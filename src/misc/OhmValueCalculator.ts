@@ -56,11 +56,6 @@ export class OhmValueCalculatorService implements OhmValueCalculator {
       return index === 0 ? resolved * 10 : resolved;
     });
 
-    console.log(`a: ${a}`);
-    console.log(`b: ${b}`);
-    console.log(`multiplier: ${multiplier}`);
-    console.log(`tolerance: ${tolerance}`);
-
     return {
       value: (a + b) * 10 ** multiplier,
       tolerance: tolerance
