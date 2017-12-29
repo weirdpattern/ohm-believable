@@ -1,5 +1,5 @@
-import descriptors from "./descriptors";
 import Resistance from "./Resistance";
+import { descriptors, validateColor } from "./descriptors";
 import {
   isMaybe,
   Maybe,
@@ -46,12 +46,17 @@ export class OhmValueCalculatorService implements OhmValueCalculator {
     multiplierColor: MultiplierColors,
     toleranceColor: ToleranceColors
   ): Resistance {
+    validateColor(aColor, "aColor");
+    validateColor(bColor, "bColor");
+    validateColor(multiplierColor, "multiplierColor");
+    validateColor(toleranceColor, "toleranceColor");
+
     const [a, b, multiplier] = [
       descriptors[aColor].value,
       descriptors[bColor].value,
       descriptors[multiplierColor].multiplier
     ].map((value: Maybe<number>, index: number) => {
-      const resolved: number = isMaybe(value) ? 0 : parseInt(String(value), 10);
+      const resolved: number = isMaybe(value) ? 0 : value;
       return index === 0 ? resolved * 10 : resolved;
     });
 

@@ -1,3 +1,4 @@
+import assert from "./assert";
 import { ColorDescriptor, Maybe } from "./interfaces";
 
 /**
@@ -25,11 +26,7 @@ function descriptor(
   };
 }
 
-/**
- * The color descriptors.
- * @constant
- */
-export default {
+export const descriptors = {
   black: descriptor("black", "#000000", 0, 0, null),
   brown: descriptor("brown", "#964B00", 1, 1, "±1%"),
   red: descriptor("red", "#FF0000", 2, 2, "±2%"),
@@ -45,3 +42,14 @@ export default {
   pink: descriptor("pink", "#FF69B4", null, -3, null),
   transparent: descriptor("transparent", "#E9DDAF", null, null, "±20%")
 };
+
+/**
+ * Validates the given color is a valid color.
+ * @param {string} color the color.
+ * @param {string} name the name of the band being validated.
+ * @returns {void | never} throws an exception when the color is not valid.
+ */
+export function validateColor(color: string, name: string): void | never {
+  assert(typeof color === "string", `${name} must be a string`);
+  assert(color in descriptors, `${name} must be a valid color`);
+}

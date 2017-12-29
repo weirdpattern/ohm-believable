@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import descriptors from "../../misc/descriptors";
 import ColorPicker from "../color-picker";
+import { descriptors } from "../../misc/descriptors";
 import {
   AllColors,
   BandsProps,
