@@ -27,7 +27,7 @@ export function createEntry(...extras: string[]): string[] {
   return [
     resource("support", "polyfills"),
     ...extras,
-    resource("src", "index.tsx")
+    resource("src", "app.tsx")
   ];
 }
 
@@ -64,13 +64,14 @@ export function createRules(typescriptRule: Rule): Rule[] {
           }
         },
         {
-          test: /\.css$/,
+          test: /\.scss$/,
           use: [
             "style-loader",
             {
               loader: "css-loader",
               options: {
-                importLoaders: 1
+                sourceMap: true,
+                minimize: true
               }
             },
             {
@@ -90,7 +91,8 @@ export function createRules(typescriptRule: Rule): Rule[] {
                   })
                 ]
               }
-            }
+            },
+            "sass-loader"
           ]
         },
         {

@@ -62,7 +62,7 @@ export default {
       sourceMap: true
     }),
     new ExtractTextPlugin({
-      filename: "static/css/[name].[contenthash:8].css",
+      filename: "static/css/[name].[contenthash:8].css"
     }),
     new ManifestPlugin({
       fileName: "asset-manifest.json"

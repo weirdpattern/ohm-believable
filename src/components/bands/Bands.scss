@@ -1,0 +1,53 @@
+$color-background: #e9ddaf;
+
+$colors: (
+  black: #000000,
+  brown: #964B00,
+  red: #FF0000,
+  orange: #FFA500,
+  yellow: #FFFF00,
+  green: #9ACD32,
+  blue: #6495ED,
+  violet: #9400D3,
+  gray: #A0A0A0,
+  white: #FFFFFF,
+  gold: #CFB53B,
+  silver: #C0C0C0,
+  pink: #FF69B4,
+  transparent: "transparent"
+);
+
+.resistor-svg {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+
+  .body {
+    fill: $color-background;
+    stroke-width: 0.5;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+
+    .clickable {
+      opacity: 1;
+      fill-opacity: 1;
+      stroke: none;
+      stroke-width: 0.94488192;
+      stroke-opacity: 1;
+    }
+
+    .line {
+      color: map-get($colors, black);
+    }
+  }
+}
+
+@each $color, $value in $colors {
+  .#{$color} {
+    fill: $value;
+    @if $color == transparent {
+      border: 1px dotted map-get($colors, black)
+    }
+  }
+}
