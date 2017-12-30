@@ -73,10 +73,10 @@ export type AllColors = BandColors | MultiplierColors | ToleranceColors;
 /**
  * Describes the bands.
  * @typedef {Interface} ResistorBands
- * @property {number} a the a band.
- * @property {number} b the b band.
- * @property {number} multiplier the resistor multipler.
- * @property {number} tolerance the tolerance of the resistor.
+ * @property {BandColors} a the a band.
+ * @property {BandColors} b the b band.
+ * @property {MultiplierColors} multiplier the resistor multipler.
+ * @property {ToleranceColors} tolerance the tolerance of the resistor.
  */
 export interface ResistorBands {
   a: BandColors;
@@ -126,10 +126,10 @@ export interface ColorPickerProps {
 /**
  * Describes the resistance properties.
  * @typedef {ResistorBands} ResistanceProps
- * @property {number} a the a band.
- * @property {number} b the b band.
- * @property {number} multiplier the resistor multipler.
- * @property {number} tolerance the tolerance of the resistor.
+ * @property {BandColors} a the a band.
+ * @property {BandColors} b the b band.
+ * @property {MultiplierColors} multiplier the resistor multipler.
+ * @property {ToleranceColors} tolerance the tolerance of the resistor.
  */
 export interface ResistanceProps extends ResistorBands {}
 

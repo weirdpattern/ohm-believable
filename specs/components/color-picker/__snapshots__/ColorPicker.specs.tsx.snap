@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorPicker components renders correctly 1`] = `
+<div
+  className="color-picker"
+>
+  <div
+    className="github-picker "
+    style={
+      Object {
+        "MozBorderRadius": "4px",
+        "MozBoxShadow": "0 3px 12px rgba(0,0,0,0.15)",
+        "OBorderRadius": "4px",
+        "OBoxShadow": "0 3px 12px rgba(0,0,0,0.15)",
+        "WebkitBorderRadius": "4px",
+        "WebkitBoxShadow": "0 3px 12px rgba(0,0,0,0.15)",
+        "background": "#fff",
+        "border": "1px solid rgba(0,0,0,0.2)",
+        "borderRadius": "4px",
+        "boxShadow": "0 3px 12px rgba(0,0,0,0.15)",
+        "display": "flex",
+        "flexWrap": "wrap",
+        "msBorderRadius": "4px",
+        "msBoxShadow": "0 3px 12px rgba(0,0,0,0.15)",
+        "padding": "5px",
+        "position": "relative",
+        "width": "200px",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "border": "8px solid transparent",
+          "borderBottomColor": "rgba(0,0,0,0.15)",
+          "display": "none",
+          "position": "absolute",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "border": "7px solid transparent",
+          "borderBottomColor": "#fff",
+          "display": "none",
+          "position": "absolute",
+        }
+      }
+    />
+    <span
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "fontSize": "0",
+            "height": "25px",
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "background": "#000000",
+                "cursor": "pointer",
+                "height": "100%",
+                "outline": "none",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+            tabIndex={0}
+            title="#000000"
+          />
+        </span>
+      </div>
+    </span>
+    <span
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "fontSize": "0",
+            "height": "25px",
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "background": "#FF0000",
+                "cursor": "pointer",
+                "height": "100%",
+                "outline": "none",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+            tabIndex={0}
+            title="#FF0000"
+          />
+        </span>
+      </div>
+    </span>
+    <span
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "fontSize": "0",
+            "height": "25px",
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "background": "#FFFF00",
+                "cursor": "pointer",
+                "height": "100%",
+                "outline": "none",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+            tabIndex={0}
+            title="#FFFF00"
+          />
+        </span>
+      </div>
+    </span>
+    <span
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "fontSize": "0",
+            "height": "25px",
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "background": "#FFFFFF",
+                "cursor": "pointer",
+                "height": "100%",
+                "outline": "none",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+            tabIndex={0}
+            title="#FFFFFF"
+          />
+        </span>
+      </div>
+    </span>
+    <span
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "fontSize": "0",
+            "height": "25px",
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "background": "#0000FF",
+                "cursor": "pointer",
+                "height": "100%",
+                "outline": "none",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+            tabIndex={0}
+            title="#0000FF"
+          />
+        </span>
+      </div>
+    </span>
+    <span
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "fontSize": "0",
+            "height": "25px",
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "background": "#00FFFF",
+                "cursor": "pointer",
+                "height": "100%",
+                "outline": "none",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+            tabIndex={0}
+            title="#00FFFF"
+          />
+        </span>
+      </div>
+    </span>
+  </div>
+</div>
+`;

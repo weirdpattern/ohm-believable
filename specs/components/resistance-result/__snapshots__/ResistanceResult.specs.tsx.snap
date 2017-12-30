@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResistanceResult components renders correctly 1`] = `
+<div
+  className="results"
+>
+  <h2>
+    410 MΩ ±5%
+  </h2>
+</div>
+`;

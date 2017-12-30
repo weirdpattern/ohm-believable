@@ -30,6 +30,7 @@
     "@types/react": "^16.0.31",
     "@types/react-color": "^2.13.3",
     "@types/react-dom": "^16.0.3",
+    "@types/react-test-renderer": "^16.0.0",
     "@types/webpack": "^3.8.1",
     "@types/webpack-env": "^1.13.3",
     "@types/webpack-manifest-plugin": "^1.3.1",
@@ -51,6 +52,7 @@
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.3",
+    "jest-css-modules": "^1.1.0",
     "json-loader": "^0.5.7",
     "node-sass": "^4.7.2",
     "opn-cli": "^3.1.0",
@@ -58,6 +60,7 @@
     "postcss-loader": "^2.0.9",
     "prettier": "^1.8.2",
     "react-hot-loader": "^3.1.3",
+    "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.2.3",
@@ -125,7 +128,14 @@
       ],
       "no-console": "error",
       "filenames/no-index": "off",
-      "filenames/match-exported": ["error", [null, "kebab", "camel"]],
+      "filenames/match-exported": [
+        "error",
+        [
+          null,
+          "kebab",
+          "camel"
+        ]
+      ],
       "jest/no-disabled-tests": "error",
       "jest/no-focused-tests": "error",
       "jest/no-identical-title": "error",
@@ -145,6 +155,9 @@
     "transform": {
       ".ts": "<rootDir>/node_modules/ts-jest/preprocessor.js",
       ".tsx": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/specs/mocks/style-mock.ts"
     },
     "rootDir": ".",
     "verbose": false,
