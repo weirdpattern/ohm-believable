@@ -8,6 +8,7 @@
     "email": "patricio.trevino@gmail.com"
   },
   "main": "src/main.js",
+  "homepage": "https://weirdpattern.github.io/ohm-believable/",
   "repository": {
     "type": "git",
     "url": "https://github.com/weirdpattern/ohm-value-calculator.git"
@@ -79,7 +80,7 @@
   "scripts": {
     "build": "rimraf build && webpack --config ./support/webpack.config.prod.ts",
     "debug": "opn http://localhost:3333 && webpack-dev-server --config ./support/webpack.config.dev.ts",
-    "gh-pages": "rimraf docs && npm run build && copy ./build/**/*.* docs && copy ./public/**/CNAME docs",
+    "gh-pages": "rimraf docs && npm run build && copy ./build/**/*.* docs",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier": "prettier",
     "test": "jest"
