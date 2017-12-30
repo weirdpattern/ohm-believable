@@ -7,11 +7,27 @@
     <link rel="manifest" href="<%= htmlWebpackPlugin.options.publicUrl %>/manifest.json">
     <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.publicUrl %>/favicon.ico">
     <title>Ω-believable</title>
+    <style>
+      .footer {
+        text-align: center;
+        width: 100%;
+        padding: 5px;
+        background-color: #EEEEEE;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    </style>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <div class="footer">
+      <a href="https://github.com/weirdpattern">Github</a> |
+      <a href="https://twitter.com/weirdpattern">Twitter</a>
+    </div>
   </body>
 </html>
